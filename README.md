@@ -6,56 +6,6 @@ We are developing a Job Portal web application where administrators can create j
 
 Kindly clone this repository, complete the assigned task, and upload the code to a **new public repository** under your GitHub profile. Once done, please share the link to this new repository as a reply to the assessment-related email you received from our HR team.
 
-**Technologies Used:**
-
-Tech stack used in this application is defined below.
-
-- **User Panel**
-    - Laravel
-    - Inertia
-    - Vue.js
-    - Tailwind CSS
-- **Admin Panel**
-    - Laravel
-    - Livewire
-    - AlpineJS
-    - Tailwind CSS
-
-**Your Task:**
-
-You are required to implement the following features in the application:
-
----
-
-![User Dashboard](https://github.com/user-attachments/assets/749fe4bb-6d13-4e2a-ab64-f1f098c701d9)
-
-
-**User Dashboard:**
-
-Design and implement a UI for a Job Card to display job details.
-
----
-
-**Admin Dashboard:**
-
-Create and update below pages in admin Panel
-
-![Admin Skills](https://github.com/user-attachments/assets/111cbd00-2bc1-461a-b6e6-713c01da22fa)
-
-**Skills Management Page:**
-- Create a page that displays a table of skills.
-- Include a form to add new skills to the database.
-
----
-
-![Admin Jobs](https://github.com/user-attachments/assets/e04f83bc-c602-498e-8a02-bbd60b677968)
-![Admin Jobs List](https://github.com/user-attachments/assets/9c45b0fa-47d0-457f-995e-ac875aca37ee)
-
-
-**Job Postings Management Page:**
-- Develop a form for creating new job postings.
-- Update the job postings list page to dynamically display postings fetched from the database.
-- Add delete functionality for the job postings.
 
 ---
 
@@ -67,3 +17,78 @@ Icons and Logos shown in job post card as already provided. Use Icon component t
 
 **User Email**: user@example.com | **User Password**: password
 # DWebPixel-assesment
+
+**Project Setup Steps:**
+
+To get the project up and running on your local machine, please follow these steps:
+
+1.  **Clone the Repository:**
+    Open your terminal or command prompt and navigate to the directory where you want to clone the project. Then, run the following command:
+    ```bash
+    git clone <repository_url>
+    ```
+    *(Replace `<repository_url>` with the actual URL of the repository you cloned.)*
+
+2.  **Copy Environment File:**
+    Navigate into the project directory in your terminal:
+    ```bash
+    cd DWebPixel-assesment
+    ```
+    Copy the contents of the `.env.example` file into a new `.env` file using the following command:
+    ```bash
+    cp .env.example .env
+    ```
+
+3.  **Generate Application Key:**
+    Generate a unique application key for your Laravel application by running the Artisan command:
+    ```bash
+    php artisan key:generate
+    ```
+    This command will update the `APP_KEY` value in your `.env` file.
+
+4.  **Install Node Dependencies:**
+    Install the required Node.js packages by running:
+    ```bash
+    npm install
+    ```
+    This command will download and install all the necessary packages listed in the `package.json` file, creating the `node_modules` folder.
+
+5.  **Install Composer Dependencies:**
+    Next, you need to install the PHP dependencies using Composer. Make sure you have Composer installed on your system. Run the following command in the project directory:
+    ```bash
+    composer install
+    ```
+    This command will download and install all the PHP packages listed in the `composer.json` file, creating the `vendor` folder.
+
+6.  **Generate Database and Seed Initial Data:**
+    The project is configured to use an SQLite database. To create the database file and seed it with initial data (including admin and user credentials), run the following Artisan command:
+    ```bash
+    php artisan migrate:fresh --seed
+    ```
+    This command will:
+    * Drop all existing tables from the database.
+    * Run all the migrations to create the database schema.
+    * Execute the seeders, which will populate the database with initial data, including the admin and user accounts mentioned in the notes.
+
+7.  **Create Storage Link:**
+    Create a symbolic link to make the uploaded files accessible from the `public` directory:
+    ```bash
+    php artisan storage:link
+    ```
+
+8.  **Run Development Servers:**
+    Open two separate terminal windows or tabs.
+
+    **In the first terminal, start the Laravel development server:**
+    ```bash
+    php artisan serve
+    ```
+    This will typically run the application at `http://127.0.0.1:8000`.
+
+    **In the second terminal, start the Vite development server for frontend assets:**
+    ```bash
+    npm run dev
+    ```
+    This will compile your Vue.js components and other frontend assets and enable hot module replacement for a smoother development experience.
+
+**After completing these steps, you should be able to access the application in your web browser (usually at `http://127.0.0.1:8000`) and start working on the assessment task. You can log in using the provided credentials.**
