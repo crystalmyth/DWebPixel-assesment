@@ -39,44 +39,50 @@ To get the project up and running on your local machine, please follow these ste
     cp .env.example .env
     ```
 
-3.  **Generate Application Key:**
-    Generate a unique application key for your Laravel application by running the Artisan command:
-    ```bash
-    php artisan key:generate
-    ```
-    This command will update the `APP_KEY` value in your `.env` file.
-
-4.  **Install Node Dependencies:**
-    Install the required Node.js packages by running:
-    ```bash
-    npm install
-    ```
-    This command will download and install all the necessary packages listed in the `package.json` file, creating the `node_modules` folder.
-
-5.  **Install Composer Dependencies:**
+3.  **Install Composer Dependencies:**
     Next, you need to install the PHP dependencies using Composer. Make sure you have Composer installed on your system. Run the following command in the project directory:
     ```bash
     composer install
     ```
     This command will download and install all the PHP packages listed in the `composer.json` file, creating the `vendor` folder.
 
-6.  **Generate Database and Seed Initial Data:**
-    The project is configured to use an SQLite database. To create the database file and seed it with initial data (including admin and user credentials), run the following Artisan command:
+4.  **Generate Application Key:**
+    Generate a unique application key for your Laravel application by running the Artisan command:
+    ```bash
+    php artisan key:generate
+    ```
+    This command will update the `APP_KEY` value in your `.env` file.
+
+5.  **Create SQLite Database File:**
+    Create an empty SQLite database file. You can do this using the `touch` command in your terminal:
+    ```bash
+    touch database/database.sqlite
+    ```
+    Ensure you are in the root directory of your project when running this command.
+
+6.  **Install Node Dependencies:**
+    Install the required Node.js packages by running:
+    ```bash
+    npm install
+    ```
+    This command will download and install all the necessary packages listed in the `package.json` file, creating the `node_modules` folder.
+
+7.  **Generate Database Schema and Seed Initial Data:**
+    The project is configured to use an SQLite database. Run the following Artisan command to create the database tables and seed initial data (including admin and user credentials):
     ```bash
     php artisan migrate:fresh --seed
     ```
     This command will:
-    * Drop all existing tables from the database.
-    * Run all the migrations to create the database schema.
-    * Execute the seeders, which will populate the database with initial data, including the admin and user accounts mentioned in the notes.
+    * Run all the migrations to create the database schema in the `database/database.sqlite` file.
+    * Execute the seeders, which will populate the database with initial data.
 
-7.  **Create Storage Link:**
+8.  **Create Storage Link:**
     Create a symbolic link to make the uploaded files accessible from the `public` directory:
     ```bash
     php artisan storage:link
     ```
 
-8.  **Run Development Servers:**
+9.  **Run Development Servers:**
     Open two separate terminal windows or tabs.
 
     **In the first terminal, start the Laravel development server:**
